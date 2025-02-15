@@ -1,6 +1,9 @@
 package com.example.task2_1;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,19 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Button buttonShow = findViewById(R.id.btnSubscribe);
+        TextView textViewInfo = findViewById(R.id.textViewInfo);
+
+        buttonShow.setOnClickListener(v -> {
+            if (textViewInfo.getVisibility() == View.VISIBLE) {
+                textViewInfo.setVisibility(View.GONE);
+                buttonShow.setText("Подписаться");
+            } else {
+                textViewInfo.setVisibility(View.VISIBLE);
+                buttonShow.setText("Скрыть");
+            }
+        });
+
     }
 }
